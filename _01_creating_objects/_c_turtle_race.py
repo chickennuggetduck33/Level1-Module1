@@ -31,24 +31,39 @@ def draw_background():
 
 if __name__ == '__main__':
     draw_background()
+    waffle = 185
+    turtlelist = []
+    for i in range(8):
 
     # TODO 1) Create an empty list of turtles
 
     # TODO 2) Create a new turtle and set its shape to 'turtle
-
+        beans = turtle.Turtle()
+        beans.shape("turtle")
     # TODO 3) Set the turtle's speed to 3
-
+        beans.speed(3)
     # TODO 4) Set the turtle's pen up
-
+        beans.penup()
     # TODO 5) Use the turtle's goto() method to set its position on the left
     #  side of the screen
-
+        beans.goto(-400, waffle)
     # TODO 6) use a loop to repeat the previous instructions and create
     #  8 turtles lined up on the left side of the screen
     #  *HINT* click on the window to print the corresponding x, y location
-
+        waffle = waffle - 53
+        turtlelist.append(beans)
     # TODO 7) Move each turtle forward a random distance between 1 and 20
-
+    chip = True
+    winner = None
+    while chip:
+        for x in turtlelist:
+            potato = random.randint(1, 20)
+            x.forward(potato)
+            if x.xcor()>340:
+                winner = turtlelist.index(x) + 1
+                chip = False
+                break
+    print("the winner is turtle " + str(winner))
     # TODO 8) Create a loop to keep moving each turtle until a turtle
     #  crosses the finish line
     #  *HINT* click on the window to print the corresponding x, y location
