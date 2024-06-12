@@ -44,10 +44,32 @@ if __name__ == '__main__':
     # Use Movie and NetflixQueue classes above to complete the following changes:
 
     # TODO 1) Instantiate (create) at least 5 Movie objects.
+    thephantommenace = Movie("the phantom menace", 3.9)
+    attackoftheclones = Movie("attack of the clones", 4)
+    anewhope = Movie("a new hope", 4.6)
+    revengeofthesith = Movie("revenge of the sith", 4.8)
+    theempirestrikesback = Movie("the empire strikes back", 4.8)
+    returnofthejedi = Movie("return of the jedi", 4.7)
+    theforceawakens = Movie("the force awakens", 3.2)
+    thelastjedi = Movie("the last jedi", 2.2)
+    theriseofskywalker = Movie("the rise of skywalker", 3.3)
     # TODO 2) Use the Movie class to get the ticket price of one of your movies.
+    thephantommenace.get_ticket_price()
     # TODO 3) Instantiate a NetflixQueue object.
+    idk = NetflixQueue()
     # TODO 4) Add your movies to the Netflix queue.
+    idk.add_movie(thephantommenace)
+    idk.add_movie(attackoftheclones)
+    idk.add_movie(revengeofthesith)
+    idk.add_movie(anewhope)
+    idk.add_movie(theempirestrikesback)
+    idk.add_movie(returnofthejedi)
+    idk.add_movie(theforceawakens)
+    idk.add_movie(thelastjedi)
+    idk.add_movie(theriseofskywalker)
     # TODO 5) Print all the movies in your queue.
+    idk.print_movies()
     # TODO 6) Use your NetflixQueue object to finish the sentence "the best movie is...."
+    waffle = idk.get_best_movie()
     # TODO 7) Use your NetflixQueue to finish the sentence "the second best movie is...."
 

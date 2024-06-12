@@ -8,7 +8,12 @@ import unittest
 #  "Tests failed". This is because the tests do not run successfully. Check
 #  the error message is "NameError: name 'Minion' is not defined" at the
 #  bottom. This is because there is no Minion class.
-
+class Minion:
+    def __init__(self, name, eyes, color, master = None):
+        self.name = name
+        self.eyes = eyes
+        self.color = color
+        self.master = master
 # TODO 2) To make these tests pass, you will first need to create a Minion
 #  class with the member variables below:
 #   name

@@ -63,7 +63,7 @@ if __name__ == '__main__':
                 winner = turtlelist.index(x) + 1
                 chip = False
                 break
-    print("the winner is turtle " + str(winner))
+    print(f"the winner is turtle {winner}")
     # TODO 8) Create a loop to keep moving each turtle until a turtle
     #  crosses the finish line
     #  *HINT* click on the window to print the corresponding x, y location
