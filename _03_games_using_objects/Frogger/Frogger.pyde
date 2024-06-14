@@ -15,64 +15,82 @@ def setup():
     bg = loadImage("froggerBackground.png")
     bg.resize(800, 600)
     #background(200, 255, 200)
-    
+    global frog_x, frog_y
+    frog_x = width/2
+    frog_y = height - 50
+    global car1
+    car1 = Car(100, 200, 200, 5)
+
+
 def draw():
     # 4. Use the background function to draw the background
     background(bg)
-    image(frog, 400, 300)
+    global car1
+    car1.update()
+    car1.draw()
     # 5. Use the image function to draw the frog.
     # Run the program and check the background and frog are displayed.
     
     # 6. Create global frog_x and frog_y variables in the setup function
     # and use them when drawing the frog. You will also have to put the
-    # following in the draw function:
+    # following in the draw function
     global frog_x, frog_y
-    def keyPressed():
-        global frog_x, frog_y
+    image(frog, frog_x, frog_y)
+
+
+def keyPressed():
+    global frog_x, frog_y
     if key == CODED:
         if keyCode == UP:
             # Frog Y position goes up
             print("up")
+            frog_y = frog_y - 77
         elif keyCode == DOWN:
             # Frog Y position goes down
             print("down")
+            frog_y = frog_y + 77
         elif keyCode == RIGHT:
             # Frog X position goes right
             print("right")
+            frog_x = frog_x + 77
         elif keyCode == LEFT:
             # Frog X position goes left
             print("left")
+            frog_x = frog_x - 77
     # 7. Use the Car class below to create a global car object in the
     # setup function and call the update and draw functions here.
     
     # 8. Create an intersects method that checks whether the frog collides
     # with the car. If there's a collision, move the frog back to the starting
     # point.
-    
+def intersects(car):
+    if frog_y > car.y and frog_y < car.y + 50 and frog_x > car.x and frog_x < car.x + car.size:
+        return True;
+    else:
+        return False;
     # 9. Create more car objects of different lengths, speed, and size
 
-    class Car:
-        def __init__(self, x, y, length, speed):
-            self.x = x
-            self.y = y
-            self.length = length
-            self.speed = speed
-            
-            self.car_image = loadImage("carRight.png")
-            if self.speed < 0:
-                self.car_image = loadImage("carLeft.png")
-            
-            self.car_image.resize(self.length, self.length / 3)
-            
-        def draw(self):
-            image(self.car_image, self.x, self.y)
+class Car:
+    def __init__(self, x, y, length, speed):
+        self.x = x
+        self.y = y
+        self.length = length
+        self.speed = speed
         
-        def update(self):
-            self.x += self.speed
+        self.car_image = loadImage("carRight.png")
+        if self.speed < 0:
+            self.car_image = loadImage("carLeft.png")
+        
+        self.car_image.resize(self.length, self.length / 3)
+        
+    def draw(self):
+        image(self.car_image, self.x, self.y)
+    
+    def update(self):
+        self.x += self.speed
+        
+        if self.x > width:
+            self.x = -self.length
             
-            if self.x > width:
-                self.x = -self.length
-                
-            if self.x < -self.length:
-                self.x = width
-    car1 = Car(200, 300, 50, 24)
+        if self.x < -self.length:
+            self.x = width
