@@ -19,7 +19,18 @@ def setup():
     frog_x = width/2
     frog_y = height - 50
     global car1
-    car1 = Car(100, 200, 200, 5)
+    car1 = Car(100, 220, 200, 5)
+    global car2
+    car2 = Car(100, 137, 200, -15)
+    global car3
+    car3 = Car(100, 300, 200, 12)
+    global car4
+    car4 = Car(100, 377, 200, -14)
+    global car5
+    car5 = Car(100, 454, 200, 2)
+    global score
+    score = 0
+    
 
 
 def draw():
@@ -28,6 +39,18 @@ def draw():
     global car1
     car1.update()
     car1.draw()
+    global car2
+    car2.update()
+    car2.draw()
+    global car3
+    car3.update()
+    car3.draw()
+    global car4
+    car4.update()
+    car4.draw()
+    global car5
+    car5.update()
+    car5.draw()
     # 5. Use the image function to draw the frog.
     # Run the program and check the background and frog are displayed.
     
@@ -36,6 +59,38 @@ def draw():
     # following in the draw function
     global frog_x, frog_y
     image(frog, frog_x, frog_y)
+    if intersects(car1):
+        frog_x = width/2
+        frog_y = height-50
+    else:
+        pass
+    if intersects(car2):
+        frog_x = width/2
+        frog_y = height-50
+    else:
+        pass
+    if intersects(car3):
+        frog_x = width/2
+        frog_y = height-50
+    else:
+        pass
+    if intersects(car4):
+        frog_x = width/2
+        frog_y = height-50
+    else:
+        pass
+    if intersects(car5):
+        frog_x = width/2
+        frog_y = height-50
+    else:
+        pass
+    global score
+    if frog_y <= 20:
+        frog_y = height - 50
+        print("winner")
+        score = score + 10
+    textSize(20)
+    text(str(score), 10, 15)
 
 
 def keyPressed():
@@ -64,11 +119,12 @@ def keyPressed():
     # with the car. If there's a collision, move the frog back to the starting
     # point.
 def intersects(car):
-    if frog_y > car.y and frog_y < car.y + 50 and frog_x > car.x and frog_x < car.x + car.size:
-        return True;
+    if frog_y > car.y and frog_y < car.y + 50 and frog_x > car.x and frog_x < car.x + car.length:
+        return True
     else:
         return False;
     # 9. Create more car objects of different lengths, speed, and size
+    
 
 class Car:
     def __init__(self, x, y, length, speed):
