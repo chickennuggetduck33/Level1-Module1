@@ -62,26 +62,31 @@ def draw():
     if intersects(car1):
         frog_x = width/2
         frog_y = height-50
+        score = score - 5
     else:
         pass
     if intersects(car2):
         frog_x = width/2
         frog_y = height-50
+        score = score - 5
     else:
         pass
     if intersects(car3):
         frog_x = width/2
         frog_y = height-50
+        score = score - 5
     else:
         pass
     if intersects(car4):
         frog_x = width/2
         frog_y = height-50
+        score = score - 5
     else:
         pass
     if intersects(car5):
         frog_x = width/2
         frog_y = height-50
+        score = score - 5
     else:
         pass
     global score
