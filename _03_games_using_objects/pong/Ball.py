@@ -19,7 +19,7 @@ class Ball():
         if self.x + self.radius > width or self.x - self.radius < 0:
             self.x_speed = -self.x_speed
             
-        if self.y + self.radius < 0:
+        if self.y - self.radius < 0 or self.y + self.radius > height:
             self.y_speed = -self.y_speed
             
         self.x += self.x_speed

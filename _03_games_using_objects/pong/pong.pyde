@@ -7,18 +7,24 @@ global started
 started = False
 
 def setup():
-    pass
-    # 1. Set the size of your window to at least width = 800, height = 600
 
+    # 1. Set the size of your window to at least width = 800, height = 600
+    size(800, 600)
+    background(255, 0, 0)
     # 2. Make a global ball variable, for example:
-    
+    global ball
+    ball = Ball(400, 300)
     # 3. Initialize your ball variable to a new Ball(), for example:
     
     # 4. Make a global paddle variable.
-    
+    global paddle
+    paddle = Paddle()
+
     # 5. Initialize your paddle variable to a new Paddle() for example:
     
 def draw():
+    print("waffle")
+    global started
     if not started:
         textSize(32)
         fill(0)
@@ -27,13 +33,19 @@ def draw():
     
     # 6. Use the background() function to set the background color.
     #    background(0) will set a classic black background
+    background(0, 0, 255)
 
     # 7. Call the ball object's update() and draw() methods.
     #    Do you see the ball moving on the screen?
-
+    global ball
+    ball.update()
+    ball.draw()
     # 8. Call the paddle object's update() and draw() methods.
     #    Do you see the paddle on the screen?
-
+    global paddle
+    
+    paddle.update()
+    paddle.draw()
     # 11. Finish the code in keyPressed() and keyReleased() first!
     #     Call the ball object's collision() method and pass the
     #     paddle object as an input variable.
