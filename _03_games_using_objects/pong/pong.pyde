@@ -50,11 +50,13 @@ def draw():
     #     Call the ball object's collision() method and pass the
     #     paddle object as an input variable.
     #     Does the ball bounce off the paddel?
-
+    ball.collision(paddle)
     # 12. End the game when the ball goes below the bottom of the screen.
     #     You can use noLoop() to freeze the game and text() to print text
     #     on the screen.
-
+    if ball.y == 0:
+        text("beans",20,20)
+        noLoop()
     # 13. Figure out how to add a score to the game so every bounce off
     #     the paddle increases the player socre
 
@@ -71,13 +73,15 @@ def keyPressed():
         global started
         started = True 
     elif key == CODED:
+        global paddle
         if keyCode == LEFT:
-            
-            pass
-
+            paddle.x_speed = -9
+        elif keyCode == RIGHT:
+            paddle.x_speed = 9
 
 # 10. Set paddle.x_speed to 0 when the LEFT or RIGHT arrow keys are released.
 #     Does the paddle stop when the keys are released?
 def keyReleased():
     if key == CODED:
-        pass
+        global paddle
+        paddle.x_speed = 0
