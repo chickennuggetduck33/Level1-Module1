@@ -38,6 +38,7 @@ class Ball():
         pop()
 
     def collision(self, paddle):
+        print(self.x_speed, self.y_speed)
         side = None
 
         # Temporary variables to set edges for testing
@@ -67,8 +68,8 @@ class Ball():
             if not self.currently_intersects:
                 self.currently_intersects = True
     
-                self.x_speed += 2
-                self.y_speed += 2
+                self.x_speed *= 1.1
+                self.y_speed *= 1.1
                 
                 if self.color_index < len(color_progression):
                     self.ball_color = color_progression[self.color_index]

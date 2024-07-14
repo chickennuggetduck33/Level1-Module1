@@ -23,7 +23,6 @@ def setup():
     # 5. Initialize your paddle variable to a new Paddle() for example:
     
 def draw():
-    print("waffle")
     global started
     if not started:
         textSize(32)
@@ -54,8 +53,9 @@ def draw():
     # 12. End the game when the ball goes below the bottom of the screen.
     #     You can use noLoop() to freeze the game and text() to print text
     #     on the screen.
-    if ball.y == 0:
-        text("beans",20,20)
+    if ball.y <= 20 and not ball.currently_intersects:
+        fill(255, 0, 0)
+        text("GAME OVER",308,300)
         noLoop()
     # 13. Figure out how to add a score to the game so every bounce off
     #     the paddle increases the player socre
