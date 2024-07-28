@@ -24,16 +24,18 @@ sun_colors = [
 """
 
 def setup():
-    pass
     # TODO 1) Set the size of your sketch
-
+    size(600, 600)
     """
     * PART I: Drawing the sun
     * See 1st image 
     """
 
     # TODO 2) Draw the bg_color background color using the background() function
-    
+    background(0, 0, 155)
+    noStroke()
+    fill(sun_colors[0])
+    ellipse(300, 300, 500, 500)
     # TODO 3) Draw an ellipse for the sun in the center of the window
     # Use fill(sun_colors[0]) to make it yellow
     # Use noStroke() to remove the black outline
@@ -44,17 +46,17 @@ def setup():
     """
     * PART II: Drawing a color gradient on the sun
     * See 2nd image
-    *
     * This will make the sun have gradually different colors from the 
     * top to bottom
     """
-    
     # Call the loadPixels() function to load the pixels list variable.
-    
+    loadPixels()
     # Loop through all the pixels in your window.
     # A pixel is a 1x1 square, so if your window width is 600 and the 
     # height is 400 (600x400), then there are 600 * 400 = 240,000 pixels
-        
+        for i in range(len(pixels)):
+            if pixels[i] == sun_colors[0]:
+                
         # We want to change the color of our sun so use an if statement
         # to check if the pixel is the color of the yellow circle.
         # pixels[i] is the color of the pixel.
@@ -82,7 +84,6 @@ def setup():
 
 
 def draw():
-    pass
     """
     * PART III: Drawing the missing sections at the bottom of the sun
     * See 3rd image
@@ -90,7 +91,6 @@ def draw():
     * The missing parts of the sun are created by drawing rectangles
     * over the sun with the same color as the background.
     """
-
     # Call updatePixels() to redraw the background and sun
     
     # Set the fill() color to bg_color
