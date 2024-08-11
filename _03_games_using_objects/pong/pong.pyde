@@ -27,7 +27,7 @@ def draw():
     if not started:
         textSize(32)
         fill(0)
-        text("Press 's' to start", width/3, height/2)
+        text("Press 'space' to start", width/3, height/2)
         return
     
     # 6. Use the background() function to set the background color.
@@ -69,7 +69,7 @@ def draw():
 # 9. Change paddle.x_speed when the LEFT or RIGHT arrow keys are pressed.
 #    Does the paddle move?
 def keyPressed():
-    if key == 's':
+    if key == ' ':
         global started
         started = True 
     elif key == CODED:

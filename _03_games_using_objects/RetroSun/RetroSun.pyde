@@ -54,9 +54,14 @@ def setup():
     # Loop through all the pixels in your window.
     # A pixel is a 1x1 square, so if your window width is 600 and the 
     # height is 400 (600x400), then there are 600 * 400 = 240,000 pixels
-        for i in range(len(pixels)):
-            if pixels[i] == sun_colors[0]:
-                
+    sun_top_y = 50
+    sun_bottom_y = 550
+    for i in range(len(pixels)):
+        if pixels[i] == sun_colors[0]:
+            y=i/width
+            step = map(y, sun_top_y, sun_bottom_y, 0, 1)
+            pixels[i] = interpolate_color(sun_colors, step)
+    
         # We want to change the color of our sun so use an if statement
         # to check if the pixel is the color of the yellow circle.
         # pixels[i] is the color of the pixel.
@@ -79,7 +84,7 @@ def setup():
             
             # Set the pixel at pixels[i] to the color from the previous step
 
-
+    updatePixels()
     # Call updatePixels() to apply the changes made to the pixels list
 
 

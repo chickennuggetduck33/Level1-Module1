@@ -14,6 +14,7 @@ class Ball():
         self.x_speed = random(-self.speed, self.speed)
         self.y_speed = self.speed
         self.currently_intersects = False
+        self.score = 0
         
     def update(self):
         if self.x + self.radius > width or self.x - self.radius < 0:
@@ -27,6 +28,9 @@ class Ball():
         
     def draw(self):
         push()
+        textSize(32)
+        fill(0)
+        text(self.score, 15, 25)
         
         strokeWeight(5)
         if self.color_index >= len(color_progression):
@@ -67,7 +71,7 @@ class Ball():
         if distance <= self.radius:
             if not self.currently_intersects:
                 self.currently_intersects = True
-    
+                self.score = self.score + 1
                 self.x_speed *= 1.1
                 self.y_speed *= 1.1
                 
